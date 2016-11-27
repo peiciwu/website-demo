@@ -1,0 +1,52 @@
+/** {
+    border: 1px solid red !important;
+}*/
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "冬青黑體", "STHeiti", "華文黑體", "Microsoft Yahei New", "Microsoft YaHei", "微軟雅黑", "Microsoft JhengHei", sans-serif;
+}
+
+.question {
+    background-color: gainsboro;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -webkit-box-radius: 10px;
+    border-radius: 20px;
+    margin: 0px;
+    padding: 12px 20px;
+}
+
+.no_margin {
+    margin: 0px;
+    -ms-border-radius: 10px;
+    -webkit-box-radius: 10px;
+    border-radius: 10px
+}
+
+.yes {
+    background-color: beige;
+}
+
+.no {
+    background-color: gray;
+}
+
+.text_span {
+    grid-row-end: span q2;
+}
+
+.yes_no h3{
+    /*margin-bottom: 0px;*/
+}
+
+.answer {
+    /*background-color: beige;*/
+}
+
