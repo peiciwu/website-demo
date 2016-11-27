@@ -11,12 +11,13 @@ def writeProfile(dir_name) :
     main.write('<div class="row profile">')
 
     # write image
-    main.write('<div class="col-xs-4 col-sm-2 col-md-2">')
-    main.write('<img src="http://placehold.it/100x100" class="img-fluid" alt="Responsive Image">')
+    main.write('<div class="col-xs-4 col-sm-3 col-md-2">')
+    #main.write('<img src="http://placehold.it/100x100" class="img-fluid" alt="Responsive Image">')
+    main.write('<img src="http://placehold.it/100x100">')
     main.write('</div>') # end of col-sm-2 col-md-2
 
     # write profile
-    main.write('<div class="col-xs-8 col-sm-10 col-md-10 text-left">')
+    main.write('<div class="col-xs-8 col-sm-9 col-md-10 text-left">')
     profile = open(dir_name+'/profile', 'r', encoding='utf-8')
     # youtube link 
 	#<a class="fancybox-media" href="http://www.youtube.com/watch?v=2YJ0ekCk5IE">Youtube (iframe)</a>
