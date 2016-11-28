@@ -19,10 +19,14 @@ def writeProfile(dir_name) :
     # write profile
     main.write('<div class="col-xs-8 col-sm-9 col-md-10 text-left">')
     profile = open(dir_name+'/profile', 'r', encoding='utf-8')
-    # youtube link 
-	#<a class="fancybox-media" href="http://www.youtube.com/watch?v=2YJ0ekCk5IE">Youtube (iframe)</a>
-    for line in profile:
-        main.write('<h4>%s</h4>' % line)
+    lines = profile.readlines()
+    # write speaker title and name
+    predefined = 2
+    for i in range(predefined):
+        main.write('<h4>%s</h4>' % lines[i])
+    # write youtube link if exists
+    if (len(lines) > predefined):
+        main.write('<h4><a class="fancybox-media" href="%s">點我看影片</a>' % lines[predefined])
     profile.close()
     main.write('</div>') # end of col-sm-10 col-md-2
 
@@ -32,7 +36,7 @@ def writePost(dir_name) :
     main.write('<div class="row post">')
 
     # write post
-    main.write('<div class="col-sm-12 col-md-12">')
+    main.write('<div class="col-xs-12 col-sm-12 col-md-12">')
     post = open(dir_name+'/post', 'r', encoding='utf-8')
     main.write('<ul>')
     for line in post:
@@ -42,15 +46,20 @@ def writePost(dir_name) :
     main.write('</div>') # end of col-sm-12 col-md-12
 
     # write tag
-    #main.write('<div class="col-sm12 col-md-12 tag">')
+    if os.path.isfile(dir_name+'/tag'):
+        main.write('<div class="col-xs-12 col-sm12 col-md-12 tag">')
+        main.write('<h4>')
+        tag = open(dir_name+'/tag', 'r', encoding='utf-8')
+        for line in tag:
+            main.write('<span>#%s</span>' % line)
+        main.write('</h4>')
+        main.write('</div>') # end of col-sm12 col-md-12 tag
 
-                #<div class="col-sm12 col-md-12 tag">
-                 #   <h4><span>#基督教</span><span>#繼承是家屬還是配偶</span><span>#沈默的聲音</span><span>#家庭的定義</span></h4>
-                #</div>
     main.write('</div>') # end of row post
 
 def writePerson(dir_name) :
-    main.write('<div class="row oneperson" id="%s">' % dir_name)
+    head, tail = os.path.split(dir_name)
+    main.write('<div class="row oneperson" id="%s">' % tail)
     writeProfile(dir_name)
     writePost(dir_name)
     main.write('</div>') # end of row oneperson
